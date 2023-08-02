@@ -1,6 +1,6 @@
 const passworBox = document.getElementById('password');
-const length = 15;
-
+const password_length = document.getElementById('password_length');
+let length = 0;
 const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
 const number = '0123456789';
@@ -22,8 +22,15 @@ function createPassword() {
   }
   passworBox.value = password;
 }
+function passwordLength() {
+  return password_length.value;
+}
 
 btn.addEventListener('click', function () {
+  length = passwordLength();
+  if (length < 8) {
+    length = 8;
+  }
   createPassword();
 });
 
